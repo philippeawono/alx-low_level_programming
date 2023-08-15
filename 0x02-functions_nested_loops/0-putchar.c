@@ -1,0 +1,4 @@
+$ ./0-holberton
+Holberton
+$ 
+
