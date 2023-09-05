@@ -1,27 +1,30 @@
-#include "main.h"
+#include "holberton.h"
 #include <stdio.h>
+
 /**
- * print_diagsums - Entry point
- * @a: input
- * @size: input
- * Return: Always 0 (Success)
+ *print_diagsums - prints the chessboard
+ *@a: multidimensional array
+ *@size: size of multidimensional array
+ *Return: sum of the diagonal of the matrix
  */
 void print_diagsums(int *a, int size)
 {
-	int sum1, sum2, y;
+	int i;
+	int sum;
+	int sum2;
 
-	sum1 = 0;
+	sum = 0;
 	sum2 = 0;
-
-	for (y = 0; y < size; y++)
+	for (i = 0; i < size * size;)
 	{
-		sum1 = sum1 + a[y * size + y];
+		sum = sum + a[i];
+		i = i + size + 1;
 	}
 
-	for (y = size - 1; y >= 0; y--)
+	for (i = size - 1; i < (size * size) - 1;)
 	{
-		sum2 += a[y * size + (size - y - 1)];
+		sum2 = sum2 + a[i];
+		i = i + (size - 1);
 	}
-
-	printf("%d, %d\n", sum1, sum2);
+	printf("%d, %d\n", sum, sum2);
 }
